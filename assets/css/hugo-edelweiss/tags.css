@@ -1,0 +1,12 @@
+/* #taxonomy #list-tags ul {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: var(--golden-ratio);
+    white-space: nowrap;
+    gap: 1rem;
+}
+
+#taxonomy #list-tags > ul > li {
+    display: inline-block;
+    margin: 0;
+} */
