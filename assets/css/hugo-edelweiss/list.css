@@ -46,7 +46,7 @@
 .list-day a.has-pre::before {
     position: absolute;
     left: -5rem;
-    padding-top: 0.62em;
+    padding-top: 0.42em;
     width: 4rem;
     text-align: right;
     text-transform: uppercase;

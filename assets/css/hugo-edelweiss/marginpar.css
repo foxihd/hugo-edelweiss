@@ -1,5 +1,5 @@
 .marginpar {
-    --marginparwidth: 62%;
+    --marginparwidth: 61.803398%;
     position: relative;
     left: calc(var(--marginparwidth) + 1.618pc);
     float: right;
@@ -13,7 +13,7 @@
 
 .marginpar.abs {
     /* will ignore clear attribute */
-    --marginparwidth: 38%;
+    --marginparwidth: 38.196602%;
     left: unset;
     padding-left: 1.618pc;
 }
