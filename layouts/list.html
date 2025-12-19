@@ -197,7 +197,9 @@
             {{- if $hasCover }}
             <center class="hero__image">
                 <img src="{{ $hasCover }}"
-                    alt="{{ with $alt }}{{ . }}{{ end }}">
+                    alt="{{ with $alt }}{{ . }}{{ end }}"
+                    loading="eager"
+                    fetchpriority="high">
             </center>
             {{- end }}
             <div class="hero__content">
