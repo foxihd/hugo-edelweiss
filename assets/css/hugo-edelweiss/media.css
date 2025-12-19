@@ -33,6 +33,7 @@
         position: unset;
         margin-bottom: 2rem;
         padding: 1rem var(--void) 1ex;
+        width: 100%;
         height: unset;
         writing-mode: unset;
     }
