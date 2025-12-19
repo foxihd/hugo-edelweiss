@@ -56,6 +56,7 @@ body {
     color: var(--fg);
     font-family: 'Crimson', 'Amiri', 'Times New Roman', serif;
     font-size: var(--normalsize);
+    font-variant-numeric: oldstyle-nums;
 }
 
 body > header {
@@ -85,10 +86,6 @@ main > header {
     display: flex;
     justify-content: space-between;
     max-width: var(--golden-ratio);
-    text-transform: uppercase;
-    letter-spacing: 0.5ex;
-    font-size: 0.85rem;
-    font-weight: 550;
 }
 
 body > footer {
@@ -149,11 +146,13 @@ nav details > summary {
 }
 
 nav strong,
+main > header,
 .list-year > strong,
 .textssc {
     letter-spacing: .1em;
     font-weight: 400;
-    font-variant: all-small-caps;
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
     -webkit-text-stroke: 0.02ex;
 }
 
