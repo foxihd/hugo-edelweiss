@@ -46,8 +46,8 @@
 
 body {
     display: grid;
-    grid-template-columns: calc(29.3% - 3rem) 70.7% 3rem;
-    /* transition: 2s; */
+    grid-template-columns: calc(29.3% - 5rem)  calc(70.7% - 2rem) 3rem;
+    gap: 2rem;
     margin: auto;
     background: var(--bg);
     max-width: 1440px;
@@ -56,6 +56,7 @@ body {
     color: var(--fg);
     font-family: 'Crimson', 'Amiri', 'Times New Roman', serif;
     font-size: var(--normalsize);
+    /* transition: 2s; */
     font-variant-numeric: oldstyle-nums;
 }
 
@@ -65,7 +66,7 @@ body > header {
     top: 0;
     flex-direction: column;
     align-self: start;
-    padding: 2rem 2rem 4rem;
+    padding: 2rem 0 4rem 2rem;
     max-height: 100vh;
     overflow-y: auto;
 }
@@ -100,7 +101,7 @@ body > footer {
 
 @supports (writing-mode: sideways-lr) {
     body > header {
-        padding: 2rem;
+        padding: 2rem 0 2rem 2rem;
     }
 
     body > footer {
