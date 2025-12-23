@@ -46,6 +46,7 @@
         }}
 
     {{- if not site.Params.typeface.webSafe }}
+        <link rel="preconnect" href="https://fonts.bunny.net/amiri/files/amiri-latin-400-normal.woff2" />
         {{- $style = $style | append (resources.Get "css/hugo-edelweiss/crimson.css") (resources.Get "css/hugo-edelweiss/inconsolata.css") }}
     {{- end }}
 
