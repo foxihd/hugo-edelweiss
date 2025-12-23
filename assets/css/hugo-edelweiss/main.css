@@ -155,6 +155,11 @@ nav ul ul[role=presentation]  {
     padding-left: 1rem;
 }
 
+nav ul li {
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+
 details.presentation > summary,
 nav details > summary {
     list-style: none;
@@ -384,6 +389,7 @@ hgroup h1,
 figure,
 blockquote > p,
 li > p,
+nav#breadcrumb ul li,
 #toc nav,
 #taxonomy li:last-child {
     margin: 0;
