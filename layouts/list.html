@@ -28,7 +28,7 @@
             </section>
         {{- else }}
             {{- $title := .LinkTitle }}
-            <h1>{{ i18n "taxonomy" }}: <span class="{{ .Data.Singular }}">{{ $title }}</span></h1>
+            <h1>{{ i18n "taxonomy" 1 }}: <span class="{{ .Data.Singular }}">{{ $title }}</span></h1>
             {{- if eq .Data.Plural "tags" }}
                 <div id="list-tags">
                 {{ partial "taxonomies.html" (dict "taxonomy" "tags" "withPages" false ) }}
