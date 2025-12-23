@@ -250,6 +250,8 @@ a.has-desc {
 #breadcrumb {
     margin-top: auto;
     margin-right: auto;
+    overflow-x: auto;
+    white-space: nowrap;
     font-variant: all-small-caps;
 }
 
