@@ -104,7 +104,7 @@
 {{- end }}
 
 {{- define "menuItemWithChildren" }}
-    <details open>
+    <details>
         <summary>
             {{- if and .icon (not .desc) }}
                 <i class="icon">{{ .icon }}</i>
