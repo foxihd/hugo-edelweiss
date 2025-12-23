@@ -49,9 +49,11 @@
 {{- end }}
 
 {{- define "feed" -}}
-    {{- $descending := and (eq $.Kind "term") (eq $.Data.Plural "series") }}
-    {{- $pages := .Data.Pages }}
-    {{- if .IsHome }}
+    {{- $descending := or (not .IsHome) (eq $.Data.Plural "series") $.Params.descending }}
+    {{- $pages := .RegularPages }}
+    {{- if $.Params.Recursive }}
+        {{- $pages = .RegularPagesRecursive }}
+    {{- else if .IsHome }}
         {{- $pages =  where site.RegularPages "Type" (or "post" "articles") }}
     {{- end }}
     {{- if not $pages }}
