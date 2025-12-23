@@ -5,9 +5,11 @@
 }
 
 .list-year > strong {
-    padding-right: 1rem;
+    margin-right: 1rem;
+    background: var(--ac);
     width: 5rem;
     text-align: right;
+    color: var(--bg);
 }
 
 .list-year.descending {
