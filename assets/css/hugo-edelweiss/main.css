@@ -73,6 +73,7 @@ body > header {
 
 body > header nav {
     margin: 2rem 0;
+    max-width: 21rem;
 }
 
 main {
@@ -162,6 +163,8 @@ nav ul li {
 
 details.presentation > summary,
 nav details > summary {
+    display: flex;
+    justify-content: space-between;
     list-style: none;
 }
 
@@ -528,8 +531,6 @@ tbody tr:nth-child(2n) {
 }
 
 #comments > summary {
-    display: flex;
-    justify-content: space-between;
     letter-spacing: 0.1ex;
     font-variant: all-small-caps;
 }

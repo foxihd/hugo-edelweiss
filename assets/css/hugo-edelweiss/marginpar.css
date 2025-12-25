@@ -18,6 +18,36 @@
     padding-left: 1.618pc;
 }
 
+nav details > summary::after,
+.marginpar-ctrl + label::before {
+    /* add indicator [v] */
+    --tst: 200ms ease-out;
+    position: relative;
+    top: 0.23em;
+    align-self: center;
+    -webkit-transition: var(--tst);
+       -moz-transition: var(--tst);
+         -o-transition: var(--tst);
+            transition: var(--tst);
+    margin-left: auto;
+    background: linear-gradient(to top, transparent 49%, var(--g18) 51%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    font: 8pt 'base-ui';
+    content: '\e913';
+}
+
+nav details[open] > summary::after,
+.marginpar-ctrl:checked + label::before,
+#menu:checked + label {
+    /* change indicator state [x] */
+    --anm: blinking 3s step-end infinite;
+    top: 0;
+    background: unset;
+    color: var(--ac);
+}
+
 .marginpar-ctrl + .has-counter::before {
     position: unset;
     counter-increment: marginnote;
@@ -65,6 +95,7 @@
     top: -100vh;
 }
 
+nav details[open] > summary::after,
 .marginpar-ctrl:checked + label::before,
 .marginpar-ctrl:checked + label + .marginpar,
 #menu:checked ~ * {
@@ -72,13 +103,6 @@
        -moz-animation: var(--anm);
          -o-animation: var(--anm);
             animation: var(--anm);
-}
-
-.marginpar-ctrl + label::before {
-    -webkit-transition: var(--tst);
-       -moz-transition: var(--tst);
-         -o-transition: var(--tst);
-            transition: var(--tst);
 }
 
 @media screen and (max-width: 640px) {
@@ -96,7 +120,6 @@
 
     .marginpar-ctrl:checked + label::before {
         --anm: unset;
-        color: var(--ac);
     }
 
     .marginpar,
@@ -114,26 +137,4 @@
         padding: 0 1.618pc 0 0;
     }
 
-    .marginpar-ctrl + label::before {
-        /* add indicator [v] */
-        --tst: 200ms ease-out;
-        position: relative;
-        top: 0.23em;
-        align-self: center;
-        margin-left: auto;
-        background: linear-gradient(to top, transparent 49%, var(--g18) 51%);
-        -webkit-background-clip: text;
-                background-clip: text;
-        color: transparent;
-        font: 8pt 'base-ui';
-        content: '\e913';
-    }
-
-    .marginpar-ctrl:checked + label::before,
-    #menu:checked + label {
-        /* change indicator state [x] */
-        --anm: blinking 3s step-end infinite;
-        background: unset;
-        top: 0;
-    }
 }

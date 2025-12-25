@@ -4,7 +4,8 @@
         --void: calc((29.289322vw - 1rem) / 3.14); /* 100vw - 70.710678vw */
     }
 
-    main {
+    main,
+    body > header nav {
         width: unset;
         max-width: unset;
     }
