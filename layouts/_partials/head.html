@@ -19,6 +19,11 @@
     {{- with .Resources.GetMatch "*.css" }}
         <style>{{ .Content | safeCSS }}</style>
     {{- end }}
+    {{- if or .Params.Math site.Params.Math }}
+        {{ partialCached "head/js/katex.html" . }}
+    {{- else if or .Params.MathJax site.Params.MathJax }}
+        {{ partialCached "head/js/mathjax.html" . }}
+    {{- end }}
     {{ if .IsHome }}
         <style>
             .target:target ~ .target:last-of-type,.target,.hash,#home-nav-alt{display:none}.target:last-of-type,.target:target{display:block;scroll-snap-margin-top:100vh;scroll-margin-top:100vh}.target:focus{outline:0}.target{width:100%}.hero__content h1,.hero__content h2{margin-top:1rem;}#list-tags li{display:inline-block;margin-right:1ex;}@media only screen and (max-width:1024px){.has-cover{display:flex;flex-direction:column;gap:0}#home-nav-alt{display:block;margin-bottom:3.14rem}#hash{display:none}.hash{display:inline-block} a.hash::after{content:''}}
@@ -283,5 +288,55 @@
                 {{- end }}
             }
         }
+    </script>
+{{- end }}
+
+{{- define "partials/head/js/katex.html" -}}
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" rel="stylesheet"
+        integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"
+        integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+        integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"
+        defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.getElementById('main-article'), {
+                delimiters: [
+                    {left: '$', right: '$', display: false},
+                    {left: '$$', right: '$$', display: true},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true},
+                    {left: "\begin{equation}", right: "\end{equation}", display: true},
+                    {left: "\begin{align}", right: "\end{align}", display: true},
+                ],
+                throwOnError : false
+            });
+        });
+    </script>
+{{- end }}
+
+{{- define "partials/head/js/mathjax.html" -}}
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"
+        integrity="sha384-WSLBwI+Q8tqRHaC+f1sjS/FVv5cWp7VAfrGB17HLfZlXhbp5F/RPVP7bYVHtiAWE"
+        crossorigin="anonymous"></script>
+    <script
+        id="MathJax-script"
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"
+        async></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$','$$'], ['\\[', '\\]'], ['\begin{equation}','\end{equation}'], ['\begin{align}','\end{align}']],
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"],
+                }
+            };
+        });
     </script>
 {{- end }}
