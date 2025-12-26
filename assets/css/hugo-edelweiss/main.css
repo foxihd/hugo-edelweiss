@@ -1,7 +1,5 @@
 :root {
     --g18: #80808080;
-    --ac: maroon;
-    --mid: #555;
     --golden-ratio: 61.803398%;
     --canonic: 70.710678%;
     --max-width: 62rem;
@@ -56,7 +54,7 @@ body {
     color: var(--fg);
     font-family: 'Crimson', 'Amiri', 'Times New Roman', serif;
     font-size: var(--normalsize);
-    /* transition: 2s; */
+    transition: background 2s;
     font-variant-numeric: oldstyle-nums;
 }
 
@@ -186,10 +184,6 @@ a {
     text-decoration: none;
     color: var(--ac);
     font-style: initial;
-}
-
-a:visited {
-    color: #493280;
 }
 
 nav details summary:hover,

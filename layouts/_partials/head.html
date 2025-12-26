@@ -43,6 +43,7 @@
 
     {{- $style := slice 
         $icon
+        (resources.Get "css/hugo-edelweiss/colorscheme.css")
         (resources.Get "css/hugo-edelweiss/keyframe.css")
         (resources.Get "css/hugo-edelweiss/main.css")
         (resources.Get "css/hugo-edelweiss/list.css")
