@@ -54,7 +54,7 @@ body {
     color: var(--fg);
     font-family: 'Crimson', 'Amiri', 'Times New Roman', serif;
     font-size: var(--normalsize);
-    transition: background 2s;
+    /* transition: background 2s; */
     font-variant-numeric: oldstyle-nums;
 }
 
