@@ -136,7 +136,7 @@ img {
 }
 
 .textwidth {
-    width: var(--golden-ratio);
+    max-width: var(--golden-ratio);
 }
 
 /*  */
