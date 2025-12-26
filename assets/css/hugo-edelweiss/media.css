@@ -101,6 +101,10 @@
         display: block;
     }
 
+    .st {
+        margin: 3.14rem 0 1rem;
+    }
+
     #breadcrumb > strong {
         display: none;
     }

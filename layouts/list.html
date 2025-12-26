@@ -119,7 +119,11 @@
         {{- $hasEntry := index site.Taxonomies $entry }}
         {{- if and $hasEntry (ne $entry "stage") (not (and (eq $entry "author") (eq (len $hasEntry) 1))) }}
             <section id="list-{{ $entry }}" aria-label="{{ $entry }}">
-                <h2><a href="{{ absLangURL $entry }}"  class="section-title">{{ title $entry }}</a></h2>
+                <h2 class="st">
+                    <a href="{{ absLangURL $entry }}">
+                        <span>{{ title $entry }}</span>
+                    </a>
+                </h2>
                 {{ partial "taxonomies.html" (dict "taxonomy" $entry "withPages" false ) }}
             </section>
         {{- end }}
@@ -138,20 +142,29 @@
                 {{- $pages := .Pages }}
                 {{- if or (le $index $limit) (not $limit) -}}
                     <li>
-                        <a href="{{ .Page.Permalink }}"
-                            {{- if $withPages }}class="section-title" {{ end }}
-                            aria-label="{{ i18n $taxonomy 1 }}: {{ .Page.Title }}"
-                            aria-description="{{ printf "%d %s" .Count (i18n "posts" .Count) }}"
-                            data-post-counter="{{ printf "%d" .Count }}"
-                            >
-                            <span>{{ .Page.Title }}</span>
-                        </a>
                         {{- if $withPages }}
+                            <h2 class="st">
+                                <a href="{{ .Page.Permalink }}"
+                                    aria-label="{{ i18n $taxonomy 1 }}: {{ .Page.Title }}"
+                                    aria-description="{{ printf "%d %s" .Count (i18n "posts" .Count) }}"
+                                    data-post-counter="{{ printf "%d" .Count }}"
+                                    >
+                                    <span>{{ .Page.Title }}</span>
+                                </a>
+                            </h2>
                             <ul role="presentation">
                                 {{- range first 5 $pages }}
                                     <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
                                 {{- end }}
                             </ul>
+                        {{- else }}
+                            <a href="{{ .Page.Permalink }}"
+                                aria-label="{{ i18n $taxonomy 1 }}: {{ .Page.Title }}"
+                                aria-description="{{ printf "%d %s" .Count (i18n "posts" .Count) }}"
+                                data-post-counter="{{ printf "%d" .Count }}"
+                                >
+                                <span>{{ .Page.Title }}</span>
+                            </a>
                         {{- end }}
                     </li>
                 {{- end }}

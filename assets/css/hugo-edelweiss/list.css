@@ -22,7 +22,7 @@
 }
 
 .list-month > summary {
-    padding: 1ex 0;
+    padding: 1rem 0;
     list-style: none;
 }
 
@@ -75,22 +75,16 @@
     gap: 1.618pc;
 }
 
-#taxonomy section > h2,
-#taxonomy > div > ul > li {
+.st {
     align-self: start;
-    margin: 0 0 2rem;
-    font-size: var(--Large);
-}
-
-#taxonomy section > h2 > a,
-#taxonomy > div > ul > li > a {
+    margin: 0;
     letter-spacing: 0.1ex;
-    color: var(--fg);
+    font-size: var(--Large);
     font-variant: all-small-caps;
 }
 
-#taxonomy li ul a {
-    font-size: var(--normalsize);
+.st a {
+    color: var(--fg);
 }
 
 #list-tags li a::before {
